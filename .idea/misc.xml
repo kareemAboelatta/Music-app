@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/East-Sound/AndroidStudioProjects/Mazika/app/src/main/res/drawable-anydpi/ic_skip.xml" value="0.2115" />
+        <entry key="..\:/Users/East-Sound/AndroidStudioProjects/Mazika/app/src/main/res/drawable-anydpi/ic_skip_previous.xml" value="0.231" />
+        <entry key="..\:/Users/East-Sound/AndroidStudioProjects/Mazika/app/src/main/res/drawable-xhdpi/rounded_background_fully.xml" value="0.1165" />
+        <entry key="..\:/Users/East-Sound/AndroidStudioProjects/Mazika/app/src/main/res/drawable/circle_background.xml" value="0.1335" />
+        <entry key="..\:/Users/East-Sound/AndroidStudioProjects/Mazika/app/src/main/res/drawable/circle_background2.xml" value="0.1695" />
+        <entry key="..\:/Users/East-Sound/AndroidStudioProjects/Mazika/app/src/main/res/drawable/circle_drawable.xml" value="0.1695" />
+        <entry key="..\:/Users/East-Sound/AndroidStudioProjects/Mazika/app/src/main/res/drawable/ic_image.xml" value="0.23692307692307693" />
+        <entry key="..\:/Users/East-Sound/AndroidStudioProjects/Mazika/app/src/main/res/drawable/ic_play.xml" value="0.2035" />
+        <entry key="..\:/Users/East-Sound/AndroidStudioProjects/Mazika/app/src/main/res/drawable/round_corners_shape.xml" value="0.1695" />
+        <entry key="..\:/Users/East-Sound/AndroidStudioProjects/Mazika/app/src/main/res/drawable/rounded_background.xml" value="0.1165" />
+        <entry key="..\:/Users/East-Sound/AndroidStudioProjects/Mazika/app/src/main/res/layout-land/fragment_song.xml" value="0.12760416666666666" />
+        <entry key="..\:/Users/East-Sound/AndroidStudioProjects/Mazika/app/src/main/res/layout/activity_main.xml" value="0.15" />
+        <entry key="..\:/Users/East-Sound/AndroidStudioProjects/Mazika/app/src/main/res/layout/activity_splash_screen.xml" value="0.17272338606241983" />
+        <entry key="..\:/Users/East-Sound/AndroidStudioProjects/Mazika/app/src/main/res/layout/fragment_home.xml" value="0.21" />
+        <entry key="..\:/Users/East-Sound/AndroidStudioProjects/Mazika/app/src/main/res/layout/fragment_page_number.xml" value="0.17330861909175163" />
+        <entry key="..\:/Users/East-Sound/AndroidStudioProjects/Mazika/app/src/main/res/layout/fragment_song.xml" value="0.22" />
+        <entry key="..\:/Users/East-Sound/AndroidStudioProjects/Mazika/app/src/main/res/layout/fragment_splash1.xml" value="0.2" />
+        <entry key="..\:/Users/East-Sound/AndroidStudioProjects/Mazika/app/src/main/res/layout/fragment_splash2.xml" value="0.2" />
+        <entry key="..\:/Users/East-Sound/AndroidStudioProjects/Mazika/app/src/main/res/layout/fragment_splash3.xml" value="0.18426678067550234" />
+        <entry key="..\:/Users/East-Sound/AndroidStudioProjects/Mazika/app/src/main/res/layout/fragment_splash4.xml" value="0.22" />
+        <entry key="..\:/Users/East-Sound/AndroidStudioProjects/Mazika/app/src/main/res/layout/fragment_splash5.xml" value="0.17330861909175163" />
+        <entry key="..\:/Users/East-Sound/AndroidStudioProjects/Mazika/app/src/main/res/layout/fragment_splash6.xml" value="0.17330861909175163" />
+        <entry key="..\:/Users/East-Sound/AndroidStudioProjects/Mazika/app/src/main/res/layout/list_item.xml" value="0.22" />
+        <entry key="..\:/Users/East-Sound/AndroidStudioProjects/Mazika/app/src/main/res/layout/swipe_item.xml" value="0.18426678067550234" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorHalfBlack"
+
+    tools:context=".ui.MainActivity"
+    >
+
+
+    <com.jgabrielfreitas.core.BlurImageView
+        android:id="@+id/blurImageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:alpha="0.1"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bellie"
+        app:radius="25"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/ivSongImage"
+        android:layout_width="@dimen/_240sdp"
+        android:layout_height="@dimen/_230sdp"
+        android:elevation="@dimen/_20sdp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bellie"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginBottom="@dimen/_50sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSongArtist" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvSongName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:keepScreenOn="true"
+        android:text="SONG NAME"
+        android:lines="1"
+        android:textColor="@color/colorWhite"
+        android:textSize="35sp"
+        android:layout_margin="@dimen/_20sdp"
+        android:shadowDx="22"
+        android:shadowColor="@color/colorWhite"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvSongArtist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:keepScreenOn="true"
+        android:text="Song Artist"
+        android:textColor="@color/colorWhite"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSongName" />
+
+
+<!--
+    <com.marcinmoskala.arcseekbar.ArcSeekBar
+        android:id="@+id/arcseekbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_140sdp"
+        android:layout_marginHorizontal="4dp"
+        android:rotationX="180"
+        app:enabled="false"
+        app:layout_constraintTop_toBottomOf="@+id/ivSongImage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:progress="40"
+        app:progressBackgroundColor="@color/colorHalfPrimary"
+        app:progressBackgroundWidth="5dp"
+        app:progressColor="@color/colorWhite"
+        app:progressWidth="@dimen/_19sdp"
+        android:layout_marginTop="-100dp"
+        />
+-->
+
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animationView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/container"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivSongImage"
+        android:elevation="5dp"
+        app:lottie_speed="2"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/music" />
+
+    <LinearLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/circle_background"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/_20sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/ivAgain"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_marginEnd="@dimen/_14sdp"
+                android:src="@drawable/ic_again"
+
+                app:layout_constraintBottom_toBottomOf="@+id/ivPlayPauseDetail"
+                app:layout_constraintEnd_toStartOf="@+id/ivPlayPauseDetail"
+                app:layout_constraintTop_toTopOf="@+id/ivPlayPauseDetail" />
+
+            <ImageView
+                android:id="@+id/ivSkipPrevious"
+                android:layout_width="@dimen/_45sdp"
+                android:layout_height="@dimen/_45sdp"
+                android:layout_marginEnd="@dimen/_14sdp"
+                android:src="@drawable/ic_skip_previous"
+                app:layout_constraintBottom_toBottomOf="@+id/ivPlayPauseDetail"
+                app:layout_constraintEnd_toStartOf="@+id/ivPlayPauseDetail"
+                app:layout_constraintTop_toTopOf="@+id/ivPlayPauseDetail" />
+
+            <ImageView
+                android:id="@+id/ivPlayPauseDetail"
+                android:layout_width="@dimen/_60sdp"
+                android:layout_height="@dimen/_55sdp"
+                android:background="@drawable/circle_drawable"
+                android:elevation="10dp"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/ic_play"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/seekBar" />
+
+
+            <ImageView
+                android:id="@+id/ivSkip"
+                android:layout_width="@dimen/_45sdp"
+                android:layout_height="@dimen/_45sdp"
+                android:layout_marginStart="@dimen/_14sdp"
+                android:src="@drawable/ic_skip"
+                app:layout_constraintBottom_toBottomOf="@+id/ivPlayPauseDetail"
+                app:layout_constraintStart_toEndOf="@+id/ivPlayPauseDetail"
+                app:layout_constraintTop_toTopOf="@+id/ivPlayPauseDetail" />
+
+            <ImageView
+                android:id="@+id/ivFavorite"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_marginStart="@dimen/_14sdp"
+                android:src="@drawable/ic_favorite"
+                app:layout_constraintBottom_toBottomOf="@+id/ivPlayPauseDetail"
+                app:layout_constraintStart_toEndOf="@+id/ivPlayPauseDetail"
+                app:layout_constraintTop_toTopOf="@+id/ivPlayPauseDetail" />
+
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            >
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvCurTime"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_marginVertical="15dp"
+                android:layout_marginStart="16dp"
+                android:gravity="center"
+                android:text="00:00"
+                android:textColor="@color/colorWhite"
+                android:textSize="16sp"
+
+                />
+
+            <SeekBar
+                android:id="@+id/seekBar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_18sdp"
+                android:layout_margin="5dp"
+                android:layout_marginVertical="15dp"
+                android:layout_weight="1"
+                android:indeterminateTint="@color/colorWhite"
+                android:progress="40"
+                android:progressBackgroundTint="@color/colorWhite"
+                android:progressTint="@color/colorWhite"
+                android:secondaryProgress="@color/colorWhite"
+                android:thumbTint="@color/colorWhite"
+                android:tickMarkTint="@color/colorWhite" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvSongDuration"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_marginVertical="15dp"
+                android:layout_marginEnd="16dp"
+                android:gravity="center"
+                android:text="00:00"
+                android:textColor="@color/colorWhite"
+                android:textSize="16sp"
+
+                />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

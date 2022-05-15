@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1053602163311",
+    "project_id": "mazika-4f575",
+    "storage_bucket": "mazika-4f575.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1053602163311:android:46ab4ce3bcdaccce713b9a",
+        "android_client_info": {
+          "package_name": "com.example.mazika"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1053602163311-r40e026f0a1cojquf6trstlhhbcq4tn1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mazika",
+            "certificate_hash": "6edb42813c4ab0331e6fd67969f4679944841178"
+          }
+        },
+        {
+          "client_id": "1053602163311-n8urbik46b70kmkq0v5rq6gj12pu6a37.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_pHM__HPIxkroIziG1l_sa7iTOV0WK8o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1053602163311-n8urbik46b70kmkq0v5rq6gj12pu6a37.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
