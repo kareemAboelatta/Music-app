@@ -27,6 +27,6 @@ Mazika is Music app like Deezer and Spotify and has a lot if amazing features
 
 
 # sammmary 
-- Splash screan
+- #Splash screan
   <img src="https://user-images.githubusercontent.com/62241386/168529361-d09b91e3-d1dc-477e-b21c-2d7bd9ef6086.gif" width="200">&nbsp; 
   
