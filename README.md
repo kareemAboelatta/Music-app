@@ -1,5 +1,7 @@
 # Music-app
 Mazika is Music app like Deezer and Spotify and has a lot if amazing features 
+### [Summary video on linkedIn](https://www.linkedin.com/posts/kareem-aboelatta-893080203_androiddevelopment-kotlin-activity-6961432130513973249-4ch_?utm_source=linkedin_share&utm_medium=member_desktop_web)
+ - 
 # Features:
 - Amazing splash screan 
 - It's music app  you can play song , and puase and skip and more and more and all of that in backdround which is make you listen to music when your phone screen off
@@ -36,6 +38,6 @@ Mazika is Music app like Deezer and Spotify and has a lot if amazing features
 * [Hilt](https://developer.android.com/training/dependency-injection/hilt-android) - It is arguably the most used Dependency Injection, or DI, framework for Android. Many Android projects use Dagger to simplify building and providing dependencies across the app. It gives you the ability to create specific scopes, modules, and components, where each forms a piece of a puzzle: The dependency graph.
 
 # Note:
- > I maked this app to just work with exo player and how to make a stream song. for this reason it's not big much and i use  just firebase.
+ - I maked this app to just work with exo player and how to make a stream song. for this reason it's not big much and i use  just firebase.
 
   
