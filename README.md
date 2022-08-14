@@ -1,7 +1,7 @@
 # Music-app
 Mazika is Music app like Deezer and Spotify and has a lot if amazing features 
 ### [Summary video on linkedIn](https://www.linkedin.com/posts/kareem-aboelatta-893080203_androiddevelopment-kotlin-activity-6961432130513973249-4ch_?utm_source=linkedin_share&utm_medium=member_desktop_web)
- - 
+
 # Features:
 - Amazing splash screan 
 - It's music app  you can play song , and puase and skip and more and more and all of that in backdround which is make you listen to music when your phone screen off
