@@ -1,24 +1,19 @@
 package com.example.mazika.ui.fragments
 
 import android.content.Context
-import android.graphics.Color
 import android.os.Bundle
 import android.support.v4.media.session.PlaybackStateCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SeekBar
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.observe
 import com.bumptech.glide.RequestManager
 import com.example.mazika.R
 import com.example.mazika.commen.extension.hideStatusBar
 import com.example.mazika.data.entities.Song
-import com.example.mazika.commen.extension.showContentAboveStatusBar
-import com.example.mazika.commen.extension.showContentNormallyUnderStatusBarWithMainColor
 import com.example.mazika.commen.extension.showStatusBar
 
 import com.example.mazika.exoplayer.isPlaying
@@ -26,9 +21,8 @@ import com.example.mazika.exoplayer.toSong
 import com.example.mazika.other.Status.SUCCESS
 import com.example.mazika.ui.viewmodels.MainViewModel
 import com.example.mazika.ui.viewmodels.SongViewModel
-import com.marcinmoskala.arcseekbar.ArcSeekBar
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.fragment_song.*
+import com.example.mazika.databinding.FragmentSongBinding
 import java.text.SimpleDateFormat
 import java.util.*
 import javax.inject.Inject
@@ -50,18 +44,33 @@ class SongFragment : Fragment(R.layout.fragment_song) {
     private var shouldUpdateSeekbar = true
 
 
+    private var _binding: FragmentSongBinding? = null
+    private val binding get() = _binding!!
+
+
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentSongBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         mainViewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
         subscribeToObservers()
 
-        ivPlayPauseDetail.setOnClickListener {
+        binding.ivPlayPauseDetail.setOnClickListener {
             curPlayingSong?.let {
                 mainViewModel.playOrToggleSong(it, true)
             }
         }
-        blurImageView.setBlur(25)
+        binding.blurImageView?.setBlur(25)
 
 
         activity?.hideStatusBar()
@@ -70,7 +79,7 @@ class SongFragment : Fragment(R.layout.fragment_song) {
 
 
 
-        seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+        binding.seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 if(fromUser) {
                     setCurPlayerTimeToTextView(progress.toLong())
@@ -91,41 +100,41 @@ class SongFragment : Fragment(R.layout.fragment_song) {
         })
 
         var repeat=false
-        ivAgain.setOnClickListener {
+        binding.ivAgain?.setOnClickListener {
             repeat = repeat==false
 
             if (repeat){
                 mainViewModel.repeat()
-                ivAgain.alpha=0.5f
+                binding.ivAgain?.alpha=0.5f
             }else{
                 mainViewModel.dontRepeat()
-                ivAgain.alpha=1.0f
+                binding.ivAgain?.alpha=1.0f
 
             }
         }
 
-        ivSkipPrevious.setOnClickListener {
+        binding.ivSkipPrevious.setOnClickListener {
             mainViewModel.skipToPreviousSong()
         }
 
-        ivSkip.setOnClickListener {
+        binding.ivSkip.setOnClickListener {
             mainViewModel.skipToNextSong()
         }
     }
 
     private fun updateTitleAndSongImage(song: Song) {
-        tvSongName.text = song.title
-        tvSongArtist.text = song.subtitle
-        glide.load(song.imageUrl).into(ivSongImage)
+        binding.tvSongName.text = song.title
+        binding. tvSongArtist?.text = song.subtitle
+        glide.load(song.imageUrl).into(binding.ivSongImage)
 
         //special case
         if (song.subtitle == "Billie Eilish"){
-            blurImageView.setImageResource(R.drawable.belliebackground)
-            blurImageView.alpha=1.0f
-            blurImageView.setBlur(22)
+            binding.blurImageView?.setImageResource(R.drawable.belliebackground)
+            binding. blurImageView?.alpha  = 1.0f
+            binding. blurImageView?.setBlur(22)
         }else {
-            glide.load(song.imageUrl).into(blurImageView)
-            blurImageView.alpha = 0.1f
+            binding.blurImageView?.let { glide.load(song.imageUrl).into(it) }
+            binding.blurImageView?.alpha  = 0.1f
         }
 
 
@@ -154,30 +163,30 @@ class SongFragment : Fragment(R.layout.fragment_song) {
         }
         mainViewModel.playbackState.observe(viewLifecycleOwner) {
             playbackState = it
-            ivPlayPauseDetail.setImageResource(
+            binding.ivPlayPauseDetail.setImageResource(
                 if(playbackState?.isPlaying == true) R.drawable.ic_pause else R.drawable.ic_play
             )
-            if(playbackState?.isPlaying == true) animationView.playAnimation() else animationView.pauseAnimation()
+            if(playbackState?.isPlaying == true)  binding.animationView.playAnimation() else  binding.animationView.pauseAnimation()
 
-            seekBar.progress = it?.position?.toInt() ?: 0
+            binding.seekBar.progress = it?.position?.toInt() ?: 0
         }
         songViewModel.curPlayerPosition.observe(viewLifecycleOwner) {
             if(shouldUpdateSeekbar) {
-                seekBar.progress = it.toInt()
+                binding.seekBar.progress = it.toInt()
                 setCurPlayerTimeToTextView(it)
             }
         }
         songViewModel.curSongDuration.observe(viewLifecycleOwner) {
-            seekBar.max = it.toInt()
+            binding.seekBar.max = it.toInt()
           //  arcseekbar.maxProgress = it.toInt()
             val dateFormat = SimpleDateFormat("mm:ss", Locale.getDefault())
-            tvSongDuration.text = dateFormat.format(it)
+            binding. tvSongDuration.text = dateFormat.format(it)
         }
     }
 
     private fun setCurPlayerTimeToTextView(ms: Long) {
         val dateFormat = SimpleDateFormat("mm:ss", Locale.getDefault())
-        tvCurTime.text = dateFormat.format(ms)
+        binding.tvCurTime.text = dateFormat.format(ms)
     }
 
 
@@ -208,6 +217,13 @@ class SongFragment : Fragment(R.layout.fragment_song) {
         activity?.hideStatusBar()
 
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+
 }
 
 

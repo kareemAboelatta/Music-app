@@ -1,23 +1,26 @@
 package com.example.mazika.exoplayer
 
 import android.app.PendingIntent
+import android.app.PendingIntent.FLAG_IMMUTABLE
+import android.app.PendingIntent.FLAG_MUTABLE
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.support.v4.media.MediaBrowserCompat
 import android.support.v4.media.MediaDescriptionCompat
 import android.support.v4.media.MediaMetadataCompat
 import android.support.v4.media.session.MediaSessionCompat
 import androidx.media.MediaBrowserServiceCompat
-import com.google.android.exoplayer2.Player
-import com.google.android.exoplayer2.SimpleExoPlayer
-import com.google.android.exoplayer2.ext.mediasession.MediaSessionConnector
-import com.google.android.exoplayer2.ext.mediasession.TimelineQueueNavigator
-import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
 import com.example.mazika.exoplayer.callbacks.MusicPlaybackPreparer
 import com.example.mazika.exoplayer.callbacks.MusicPlayerEventListener
 import com.example.mazika.exoplayer.callbacks.MusicPlayerNotificationListener
 import com.example.mazika.other.Constants.MEDIA_ROOT_ID
 import com.example.mazika.other.Constants.NETWORK_ERROR
+import com.google.android.exoplayer2.Player
+import com.google.android.exoplayer2.SimpleExoPlayer
+import com.google.android.exoplayer2.ext.mediasession.MediaSessionConnector
+import com.google.android.exoplayer2.ext.mediasession.TimelineQueueNavigator
+import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.*
 import javax.inject.Inject
@@ -63,9 +66,21 @@ class MusicService : MediaBrowserServiceCompat() {
             firebaseMusicSource.fetchMediaData()
         }
 
+
+
         val activityIntent = packageManager?.getLaunchIntentForPackage(packageName)?.let {
-            PendingIntent.getActivity(this, 0, it, 0)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                PendingIntent.getActivity(this, 0, it, FLAG_MUTABLE)
+            } else {
+                PendingIntent.getActivity(this, 0, it, PendingIntent.FLAG_ONE_SHOT)
+            }
+
+
         }
+
+
+
+
 
         mediaSession = MediaSessionCompat(this, SERVICE_TAG).apply {
             setSessionActivity(activityIntent)
@@ -135,7 +150,7 @@ class MusicService : MediaBrowserServiceCompat() {
         clientPackageName: String,
         clientUid: Int,
         rootHints: Bundle?
-    ): BrowserRoot? {
+    ): BrowserRoot {
         return BrowserRoot(MEDIA_ROOT_ID, null)
     }
 

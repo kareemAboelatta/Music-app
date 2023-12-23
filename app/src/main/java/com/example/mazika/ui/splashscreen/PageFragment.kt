@@ -23,17 +23,24 @@ class PageFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val layoutId = if (position == 1) {
-            R.layout.fragment_splash1
-        } else if (position == 2) {
-            R.layout.fragment_splash2
-        } else if (position == 3) {
-            R.layout.fragment_splash3
-        } else if (position == 4) {
-            R.layout.fragment_splash4
-        } else if (position == 5) {
-            R.layout.fragment_splash5
-        } else R.layout.fragment_page_number
+        val layoutId = when (position) {
+            1 -> {
+                R.layout.fragment_splash1
+            }
+            2 -> {
+                R.layout.fragment_splash2
+            }
+            3 -> {
+                R.layout.fragment_splash3
+            }
+            4 -> {
+                R.layout.fragment_splash4
+            }
+            5 -> {
+                R.layout.fragment_splash5
+            }
+            else -> R.layout.fragment_page_number
+        }
 
 
         val view=layoutInflater.inflate(layoutId, container, false)
