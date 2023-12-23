@@ -40,7 +40,7 @@ Welcome to Mazika, an innovative music app akin to Deezer and Spotify, offering 
 Mazika is crafted with a focus on leveraging Exo Player's capabilities for seamless music streaming. Designed with simplicity and efficiency in mind, it utilizes Firebase for backend operations.
 
 ## ⭐ Show Your Support
-If you're enjoying Mazika and appreciate the innovative features it offers, please consider giving us a ⭐ on GitHub to show your support. Your stars inspire us to keep improving and make Mazika even better!
+If you're enjoying Mazika and appreciate the innovative features it offers, please consider giving us a ⭐ on GitHub to show your support or follow me. Your stars inspire us to keep improving and make Mazika even better!
 
 ---
 
